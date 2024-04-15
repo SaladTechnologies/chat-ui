@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { createEventDispatcher } from "svelte";
+
 	import Modal from "$lib/components/Modal.svelte";
 	import CarbonClose from "~icons/carbon/close";
 	import CarbonTrashCan from "~icons/carbon/trash-can";
@@ -12,6 +14,8 @@
 	import { PUBLIC_APP_DATA_SHARING } from "$env/static/public";
 
 	let isConfirmingDeletion = false;
+
+	const dispatch = createEventDispatcher<{ close: void }>();
 
 	let settings = useSettingsStore();
 </script>
@@ -48,11 +52,11 @@
 
 		<div class="mt-12 flex flex-col gap-3">
 			<a
-				href="https://huggingface.co/spaces/huggingchat/chat-ui/discussions"
+				href="https://presearch.com/"
 				target="_blank"
 				rel="noreferrer"
 				class="flex items-center underline decoration-gray-300 underline-offset-2 hover:decoration-gray-700"
-				><CarbonArrowUpRight class="mr-1.5 shrink-0 text-sm " /> Share your feedback on HuggingChat</a
+				><CarbonArrowUpRight class="mr-1.5 shrink-0 text-sm " /> Elevate your Game. Work smarter, not harder. Get the answers you need, unleash your full potential.</a
 			>
 			<button
 				on:click|preventDefault={() => (isConfirmingDeletion = true)}
@@ -67,7 +71,7 @@
 		<Modal on:close={() => (isConfirmingDeletion = false)}>
 			<form
 				use:enhance={() => {
-					isConfirmingDeletion = false;
+					dispatch("close");
 				}}
 				method="post"
 				action="{base}/conversations?/delete"
