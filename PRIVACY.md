@@ -1,36 +1,24 @@
+## About
+
+Welcome to PreGPT, the world’s first high performing, privacy focused chatbot that strictly sources its compute power via a decentralized network from our proud partner Salad.com and is utilizing purely open-sourced LLM models.
+
+PreGPT, is designed to streamline your workflow and boost your productivity by providing instant, comprehensive responses.  The sky is the limit in terms of its capabilities, so we invite you to exhaust your curiosities and experience the expansive and versatile prowess of PreGPT.  We are thrilled to offer an accessible product so powerful, that it has the potential to upskill and entire generation of people globally.
+
+To get started, dive into conversations as you would with a friend or professor, politician or celebrity.  Set the tone by unleashing your creativity or embrace your authentic self. Have it craft a bedtime story or paste an Excel table to summarize and analyze trends.  Ask about anything under the sun from complex scientific subjects to coding tutorials. Brainstorm away, learn and upskill yourself, have fun and 
+don't hesitate to experiment!
+
+
+AI is like a chameleon - it’s adaptable and will fine-tune its responses in each thread for optimized results transforming into your personal explainer, wordsmith, code guru, mathematical wizard, or poetic muse.
+
+ ## For more details, including instructions and our FAQ, please visit our docs page [here](https://docs.presearch.io/pregpt/what-is-pregpt)
+
 ## Privacy
 
-> Last updated: October 4, 2023
+Currently, our default LLM is a high performing model from Mistral AI: 7B.  This model possesses an Apache-2.0 License verifying its open sourced.  By default, the model is non-training, so your chats will never be monitored and/or used for further training of the model. When you delete your chats in settings, they are completely erased from the system.
 
-Users of HuggingChat are authenticated through their HF user account.
+This model gracefully handles a context of 8,000 Tokens which equates to about 5,000 words and you will be throttled to 1000 Messages Per Month.
+  
 
-By default, your conversations may be shared with the respective models' authors to improve their training data and model over time. Model authors are the custodians of the data collected by their model, even if it's hosted on our platform.
+## Stay tuned the Unbiased/Uncensored version coming soon!  To see more, visit our Roadmap [here.](https://app-rm.roadmunk.com/publish/5a4a54ceb3cd5f36d688a93757a91d48b7aaeee9)
 
-If you disable data sharing in your settings, your conversations will not be used for any downstream usage (including for research or model training purposes), and they will only be stored to let you access past conversations. You can click on the Delete icon to delete any past conversation at any moment.
 
-🗓 Please also consult huggingface.co's main privacy policy at <https://huggingface.co/privacy>. To exercise any of your legal privacy rights, please send an email to <privacy@huggingface.co>.
-
-## About available LLMs
-
-The goal of this app is to showcase that it is now possible to build an open source alternative to ChatGPT. 💪
-
-For now (October 2023), it's running:
-
-- [Llama 2 70B](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf)
-- [CodeLlama 35B](https://about.fb.com/news/2023/08/code-llama-ai-for-coding/)
-- [Falcon 180B](https://www.tii.ae/news/technology-innovation-institute-introduces-worlds-most-powerful-open-llm-falcon-180b)
-- [Mistral 7B](https://mistral.ai/news/announcing-mistral-7b/)
-
-## Technical details
-
-This app is running in a [Space](https://huggingface.co/docs/hub/spaces-overview), which entails that the code for this UI is publicly visible [inside the Space repo](https://huggingface.co/spaces/huggingchat/chat-ui/tree/main).
-
-**Further development takes place on the [huggingface/chat-ui GitHub repo](https://github.com/huggingface/chat-ui).**
-
-The inference backend is running the optimized [text-generation-inference](https://github.com/huggingface/text-generation-inference) on HuggingFace's Inference API infrastructure.
-
-It is therefore possible to deploy a copy of this app to a Space and customize it (swap model, add some UI elements, or store user messages according to your own Terms and conditions). You can also 1-click deploy your own instance using the [Chat UI Spaces Docker template](https://huggingface.co/new-space?template=huggingchat/chat-ui-template).
-
-We welcome any feedback on this app: please participate to the public discussion at <https://huggingface.co/spaces/huggingchat/chat-ui/discussions>
-
-<a target="_blank" href="https://huggingface.co/spaces/huggingchat/chat-ui/discussions"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-a-discussion-xl.svg" title="open a discussion"></a>
