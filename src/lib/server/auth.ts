@@ -6,7 +6,6 @@ import {
 	OPENID_CLIENT_SECRET,
 	OPENID_PROVIDER_URL,
 	OPENID_SCOPES,
-	OPENID_NAME_CLAIM,
 	OPENID_TOLERANCE,
 	OPENID_RESOURCE,
 	OPENID_CONFIG,
@@ -27,22 +26,23 @@ export interface OIDCUserInfo {
 	userData: UserinfoResponse;
 }
 
+// Set the HTTP options defaults
+custom.setHttpOptionsDefaults({
+    timeout: 100000, // Set timeout to 10000 milliseconds (10 seconds)
+});
+
 const stringWithDefault = (value: string) =>
 	z
 		.string()
 		.default(value)
 		.transform((el) => (el ? el : value));
 
-export const OIDConfig = z
+const OIDConfig = z
 	.object({
 		CLIENT_ID: stringWithDefault(OPENID_CLIENT_ID),
 		CLIENT_SECRET: stringWithDefault(OPENID_CLIENT_SECRET),
 		PROVIDER_URL: stringWithDefault(OPENID_PROVIDER_URL),
 		SCOPES: stringWithDefault(OPENID_SCOPES),
-		NAME_CLAIM: stringWithDefault(OPENID_NAME_CLAIM).refine(
-			(el) => !["preferred_username", "email", "picture", "sub"].includes(el),
-			{ message: "nameClaim cannot be one of the restricted keys." }
-		),
 		TOLERANCE: stringWithDefault(OPENID_TOLERANCE),
 		RESOURCE: stringWithDefault(OPENID_RESOURCE),
 	})
@@ -57,7 +57,7 @@ export function refreshSessionCookie(cookies: Cookies, sessionId: string) {
 		sameSite: dev ? "lax" : "none",
 		secure: !dev,
 		httpOnly: true,
-		expires: addWeeks(new Date(), 2),
+        expires: addHours(new Date(), 24), // Add 48 hours to the current date
 	});
 }
 
@@ -116,6 +116,7 @@ export async function getOIDCAuthorizationUrl(
 		scope: OIDConfig.SCOPES,
 		state: csrfToken,
 		resource: OIDConfig.RESOURCE || undefined,
+		max_age: 0,
 	});
 }
 
