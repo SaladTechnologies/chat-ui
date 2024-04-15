@@ -2,7 +2,7 @@
 	import { PUBLIC_APP_NAME, PUBLIC_VERSION } from "$env/static/public";
 	import { PUBLIC_ANNOUNCEMENT_BANNERS } from "$env/static/public";
 	import { PUBLIC_APP_DESCRIPTION } from "$env/static/public";
-	import Logo from "$lib/components/icons/Logo.svelte";
+	import Logo from "$lib/components/icons/Icon.svelte";
 	import { createEventDispatcher } from "svelte";
 	import IconGear from "~icons/bi/gear-fill";
 	import AnnouncementBanner from "../AnnouncementBanner.svelte";
@@ -32,12 +32,12 @@
 		<div>
 			<div class="mb-3 flex items-center text-2xl font-semibold">
 				<Logo classNames="mr-1 flex-none" />
-				{PUBLIC_APP_NAME}
-				<div
+				<span style="color: transparent;">{PUBLIC_APP_NAME}</span>
+				<!-- <div
 					class="ml-3 flex h-6 items-center rounded-lg border border-gray-100 bg-gray-50 px-2 text-base text-gray-400 dark:border-gray-700/60 dark:bg-gray-800"
 				>
 					v{PUBLIC_VERSION}
-				</div>
+				</div> -->
 			</div>
 			<p class="text-base text-gray-600 dark:text-gray-400">
 				{PUBLIC_APP_DESCRIPTION ||
