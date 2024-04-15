@@ -108,12 +108,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 				...(PUBLIC_ORIGIN ? [new URL(PUBLIC_ORIGIN).origin] : []),
 			];
 
-			if (!validOrigins.includes(new URL(referer).origin)) {
-				return errorResponse(403, "Invalid referer for POST request");
-			}
+			// if (!validOrigins.includes(new URL(referer).origin)) {
+			// 	return errorResponse(403, "Invalid referer for POST request");
+			// }
 		}
 	}
-
 	if (event.request.method === "POST") {
 		// if the request is a POST request we refresh the cookie
 		refreshSessionCookie(event.cookies, secretSessionId);
